@@ -1,12 +1,496 @@
-<!DOCTYPE HTML>
- 
-<meta charset="UTF-8">
-<meta http-equiv="refresh" content="0; url=http://fardinabirs.wordpress.com">
- 
-<script>
-  window.location.href = "http://fardinabirs.wordpress.com"
-</script>
- 
-<title>Page Redirection</title>
- 
-If you are not redirected automatically, follow the <a href='http://fardinabirs.wordpress.com'>link</a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kazi Fardin Islam Abir — Software Engineer</title>
+  <meta name="description" content="Kazi Fardin Islam Abir — Software Engineer specializing in Go, backend systems, microservices, and FinTech. ~5 years building scalable, high-traffic platforms." />
+  <meta name="author" content="Kazi Fardin Islam Abir" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Kazi Fardin Islam Abir — Software Engineer" />
+  <meta property="og:description" content="Backend engineer • Go • Microservices • FinTech • ~5 years building scalable systems." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://fardinabir.github.io/" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Sora:wght@300;400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- animated background -->
+  <div class="bg-grid" aria-hidden="true"></div>
+  <div class="bg-glow" aria-hidden="true"></div>
+
+  <!-- NAV -->
+  <header class="nav" id="nav">
+    <a href="#hero" class="nav__logo">KFA<span>.</span></a>
+    <nav class="nav__links">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#testimonials">Recommendations</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="nav__cta" href="resume.pdf" download="Kazi-Fardin-Islam-Abir-Resume.pdf">Résumé ↓</a>
+    <button class="nav__burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero" id="hero">
+      <div class="hero__inner reveal">
+        <p class="hero__eyebrow">// software_engineer.go</p>
+        <h1 class="hero__name">Kazi Fardin<br />Islam Abir</h1>
+        <p class="hero__role">
+          <span class="type" id="typed"></span><span class="cursor">▌</span>
+        </p>
+        <p class="hero__desc">
+          Backend engineer with <strong>~5 years</strong> building scalable, high-traffic
+          systems in <strong>FinTech</strong>. I turn messy real-world problems into
+          elegant, business-oriented solutions — from wallets serving millions to
+          data pipelines crunching millions of records.
+        </p>
+        <div class="hero__actions">
+          <a class="btn btn--primary" href="#projects">View Work</a>
+          <a class="btn btn--ghost" href="#contact">Get in touch</a>
+        </div>
+        <div class="hero__stats">
+          <div><span class="num" data-count="5">0</span><small>Years exp.</small></div>
+          <div><span class="num" data-count="37" data-suffix="+">0</span><small>Projects</small></div>
+          <div><span class="num" data-count="10" data-suffix="M">0</span><small>Users benefited</small></div>
+          <div><span class="num" data-count="3" data-suffix="x">0</span><small>Perf gains</small></div>
+        </div>
+      </div>
+      <div class="hero__scroll">scroll ↓</div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section" id="about">
+      <div class="section__head reveal">
+        <span class="section__index">01</span>
+        <h2>About me</h2>
+      </div>
+      <div class="about reveal">
+        <div class="about__text">
+          <p>
+            I'm a passionate, self-motivated <strong>Software Engineer</strong> with a track
+            record of delivering effective, innovative work in the realm of fintech.
+            Currently I lead offshore backend development at <strong>Venturas Ltd</strong> for a
+            Japanese fintech-media client serving 30M+ monthly page views.
+          </p>
+          <p>
+            I'm proficient in <strong>Go</strong>, microservices, PostgreSQL, Docker and Kubernetes,
+            with a focus on scalable systems and clean code. I cut my teeth on distributed
+            architecture at <strong>Pathao Pay</strong> and on SQL optimization &amp; automation at
+            <strong>Robi Axiata</strong>.
+          </p>
+          <p>
+            Beyond code, I teach (120+ junior programmers), led my university CS club, and
+            founded <strong>Pashe Achi Amra</strong>, a socio-voluntary initiative. I'm currently
+            deepening my expertise in distributed systems and AI-powered solutions.
+          </p>
+        </div>
+        <ul class="about__facts">
+          <li><b>Location</b> Dhaka, Bangladesh</li>
+          <li><b>Focus</b> Backend · Microservices · FinTech</li>
+          <li><b>Primary lang</b> Go (Golang)</li>
+          <li><b>Education</b> B.Sc. CSE, Khulna University</li>
+          <li><b>Open to</b> Global engineering teams</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section class="section" id="experience">
+      <div class="section__head reveal">
+        <span class="section__index">02</span>
+        <h2>Experience</h2>
+      </div>
+      <div class="timeline">
+        <article class="tl reveal">
+          <div class="tl__dot"></div>
+          <div class="tl__body">
+            <div class="tl__company">
+              <img src="assets/logos/venturas.png" alt="Venturas Ltd logo" class="tl__logo" />
+              <div>
+                <h3>Venturas Ltd</h3>
+                <span class="tl__role">Software Engineer II</span>
+              </div>
+              <div class="tl__meta">
+                <span class="tl__date">Jan 2025 — Present</span>
+                <span class="tl__loc">Remote · Tokyo, Japan</span>
+              </div>
+            </div>
+            <ul>
+              <li>Led offshore development for a fintech-media client (30M+ monthly PV), driving timely delivery and cross-team coordination.</li>
+              <li>Improved RSS feed ingestion speed <b>3x</b> via async processing &amp; architectural refinements.</li>
+              <li>Led <b>Redis → Valkey</b> migration, cutting AWS ElastiCache cost <b>~20%</b> with zero downtime.</li>
+              <li>Architected an investment-quiz feature engaging <b>100K+</b> daily participants.</li>
+              <li>Replaced SQL search with inverted-index search; spearheaded Go unit tests &amp; fixed critical CI coverage.</li>
+            </ul>
+            <div class="tl__tags"><span>Go</span><span>Valkey</span><span>AWS</span><span>CI/CD</span><span>ElasticSearch</span></div>
+          </div>
+        </article>
+
+        <article class="tl reveal">
+          <div class="tl__dot"></div>
+          <div class="tl__body">
+            <div class="tl__company">
+              <img src="assets/logos/pathaopay.png" alt="Pathao Pay logo" class="tl__logo" />
+              <div>
+                <h3>Pathao Pay <small>· Digital Payments Ltd</small></h3>
+                <span class="tl__role">Software Engineer I</span>
+              </div>
+              <div class="tl__meta">
+                <span class="tl__date">Jan 2023 — Dec 2024</span>
+                <span class="tl__loc">Dhaka, Bangladesh</span>
+              </div>
+            </div>
+            <ul>
+              <li>Integrated payment gateways for a seamless wallet experience for <b>8M+</b> users.</li>
+              <li>Secured tokenized payments with <b>RSA cryptography</b>, reducing vulnerabilities across 70% of payment APIs.</li>
+              <li>Built k6 load-testing suite → <b>~25x</b> boost in large-scale load generation.</li>
+              <li>Refactored fund-service DB models (<b>−30%</b> table size); improved auth service performance <b>1.8x</b>.</li>
+            </ul>
+            <div class="tl__tags"><span>Go</span><span>Microservices</span><span>PostgreSQL</span><span>k6</span><span>RSA</span></div>
+          </div>
+        </article>
+
+        <article class="tl reveal">
+          <div class="tl__dot"></div>
+          <div class="tl__body">
+            <div class="tl__company">
+              <img src="assets/logos/robi.png" alt="Robi Axiata logo" class="tl__logo" />
+              <div>
+                <h3>Robi Axiata Ltd</h3>
+                <span class="tl__role">Specialist, Technical Assurance</span>
+              </div>
+              <div class="tl__meta">
+                <span class="tl__date">May 2022 — Dec 2022</span>
+                <span class="tl__loc">Dhaka, Bangladesh</span>
+              </div>
+            </div>
+            <ul>
+              <li>Optimized Oracle PL/SQL queries &amp; procedures, reducing execution time <b>15%</b>.</li>
+              <li>Automated 20+ reconciliation jobs &amp; grey-traffic barring system via Shell scripts.</li>
+              <li>Upgraded VoIP detection model — cut operational time &amp; manual effort <b>80%</b>.</li>
+            </ul>
+            <div class="tl__tags"><span>Oracle PL/SQL</span><span>Shell</span><span>Automation</span></div>
+          </div>
+        </article>
+
+        <article class="tl reveal">
+          <div class="tl__dot"></div>
+          <div class="tl__body">
+            <div class="tl__company">
+              <img src="assets/logos/mojaru.png" alt="Mojaru logo" class="tl__logo" />
+              <div>
+                <h3>Mojaru</h3>
+                <span class="tl__role">Programming Instructor</span>
+              </div>
+              <div class="tl__meta">
+                <span class="tl__date">Sep 2021 — May 2022</span>
+                <span class="tl__loc">Dhaka, Bangladesh</span>
+              </div>
+            </div>
+            <ul>
+              <li>Taught the <b>'Programming for Juniors'</b> course — basics of C across two batches.</li>
+              <li>A good number of students achieved prestigious rankings in <b>NHSPC</b> and <b>BdIOI</b>.</li>
+            </ul>
+            <div class="tl__tags"><span>C</span><span>Teaching</span><span>Algorithms</span></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- AREAS OF EXPERTISE -->
+    <section class="section" id="expertise">
+      <div class="section__head reveal">
+        <span class="section__index">03</span>
+        <h2>Areas of Expertise</h2>
+      </div>
+      <div class="expertise reveal">
+        <article class="exp">
+          <span class="exp__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/>
+            </svg>
+          </span>
+          <h3>FinTech</h3>
+          <p>Wallets, payment gateways, tokenized &amp; encrypted transactions at the scale of millions of users.</p>
+        </article>
+        <article class="exp">
+          <span class="exp__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/>
+              <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/>
+            </svg>
+          </span>
+          <h3>E-commerce</h3>
+          <p>Transaction flows, merchant integrations and reliable checkout experiences within large ecosystems.</p>
+        </article>
+        <article class="exp">
+          <span class="exp__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2Zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/>
+              <path d="M18 14h-8"/><path d="M15 18h-5"/><path d="M10 6h8v4h-8V6Z"/>
+            </svg>
+          </span>
+          <h3>Media</h3>
+          <p>High-traffic content platforms — feed ingestion, search, caching and API performance under peak load.</p>
+        </article>
+        <article class="exp">
+          <span class="exp__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/>
+              <circle cx="12" cy="12" r="3"/>
+            </svg>
+          </span>
+          <h3>Automation</h3>
+          <p>Reconciliation jobs, detection models and pipelines that cut manual effort and operational time.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="section" id="skills">
+      <div class="section__head reveal">
+        <span class="section__index">04</span>
+        <h2>Skills &amp; Tools</h2>
+      </div>
+      <div class="skills reveal">
+        <div class="skills__group">
+          <h4>Languages</h4>
+          <div class="chips"><span>Go</span><span>C++</span><span>JavaScript</span><span>Python</span><span>Node.js</span><span>SQL</span></div>
+        </div>
+        <div class="skills__group">
+          <h4>Microservices &amp; DevOps</h4>
+          <div class="chips"><span>Docker</span><span>Kubernetes</span><span>Kafka</span><span>Nginx</span><span>GitHub Actions</span><span>CircleCI</span><span>ArgoCD</span><span>AWS</span></div>
+        </div>
+        <div class="skills__group">
+          <h4>Databases</h4>
+          <div class="chips"><span>PostgreSQL</span><span>Redis / Valkey</span><span>ElasticSearch</span><span>MongoDB</span><span>Oracle</span><span>Hadoop</span></div>
+        </div>
+        <div class="skills__group">
+          <h4>Also familiar</h4>
+          <div class="chips"><span>WebSockets</span><span>Kong</span><span>HashiCorp Vault</span><span>TDD</span><span>Agile</span><span>Payment Gateways</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="section" id="projects">
+      <div class="section__head reveal">
+        <span class="section__index">05</span>
+        <h2>Projects</h2>
+      </div>
+      <div class="projects">
+        <a class="card reveal" href="https://github.com/fardinabir/Turbo-Chat" target="_blank" rel="noopener">
+          <div class="card__top">
+            <span class="card__icon">💬</span>
+            <span class="card__arrow" aria-hidden="true">↗</span>
+          </div>
+          <h3>Turbo-Chat</h3>
+          <p>Real-time chat on Node.js focused on low-latency messaging — room-based chat, online tracking. Redis + WebSocket sped delivery <b>10x</b>; Kafka scales high message volume.</p>
+          <div class="card__tags"><span>Node.js</span><span>Redis</span><span>WebSocket</span><span>Kafka</span></div>
+        </a>
+
+        <a class="card reveal" href="https://github.com/fardinabir/auth-guard" target="_blank" rel="noopener">
+          <div class="card__top">
+            <span class="card__icon">🔐</span>
+            <span class="card__arrow" aria-hidden="true">↗</span>
+          </div>
+          <h3>Auth Guard</h3>
+          <p>Lightweight JWT-based user authentication service in Go. Robust user management with a strong emphasis on security, efficiency &amp; easy integration.</p>
+          <div class="card__tags"><span>Go</span><span>JWT</span><span>Security</span></div>
+        </a>
+
+        <a class="card reveal" href="https://github.com/fardinabir/5-ayat-daily" target="_blank" rel="noopener">
+          <div class="card__top">
+            <span class="card__icon">📖</span>
+            <span class="card__arrow" aria-hidden="true">↗</span>
+          </div>
+          <h3>Five Ayat Daily</h3>
+          <p>Telegram bot delivering daily Quran verses to subscribers. Built on Go's concurrency over the Telegram API for a highly responsive bot service.</p>
+          <div class="card__tags"><span>Go</span><span>Telegram API</span><span>Concurrency</span></div>
+        </a>
+      </div>
+    </section>
+
+    <!-- CERTIFICATIONS -->
+    <section class="section" id="certifications">
+      <div class="section__head reveal">
+        <span class="section__index">06</span>
+        <h2>Certifications</h2>
+      </div>
+      <div class="certs reveal">
+        <div class="cert"><span class="cert__issuer">KodeKloud</span><h4>AI Agent in DevOps</h4><span class="cert__date">Sep 2025</span></div>
+        <div class="cert"><span class="cert__issuer">KodeKloud</span><h4>Crash Course: MCP For Beginners</h4><span class="cert__date">Sep 2025</span></div>
+        <div class="cert"><span class="cert__issuer">HackerRank</span><h4>Software Engineering</h4><span class="cert__date">Apr 2025</span></div>
+        <div class="cert"><span class="cert__issuer">HackerRank</span><h4>Go (Golang)</h4><span class="cert__date">Apr 2025</span></div>
+        <div class="cert"><span class="cert__issuer">KodeKloud</span><h4>Kubernetes Hands-on Lab</h4><span class="cert__date">Apr 2025</span></div>
+        <div class="cert"><span class="cert__issuer">AWS</span><h4>AWS Basics</h4><span class="cert__date">Jun 2022</span></div>
+        <div class="cert"><span class="cert__issuer">LinkedIn</span><h4>REST API</h4><span class="cert__date">Jun 2022</span></div>
+        <div class="cert"><span class="cert__issuer">LinkedIn</span><h4>React.js</h4><span class="cert__date">Jun 2022</span></div>
+        <div class="cert"><span class="cert__issuer">LinkedIn</span><h4>Python Data Analysis</h4><span class="cert__date">Jun 2022</span></div>
+        <div class="cert"><span class="cert__issuer">ICPC</span><h4>ICPCID</h4><span class="cert__date">—</span></div>
+        <div class="cert"><span class="cert__issuer">HackerRank</span><h4>Problem Solving Skill</h4><span class="cert__date">Aug 2020</span></div>
+      </div>
+    </section>
+
+    <!-- AWARDS -->
+    <section class="section" id="awards">
+      <div class="section__head reveal">
+        <span class="section__index">07</span>
+        <h2>Awards &amp; Honors</h2>
+      </div>
+      <div class="awards reveal">
+        <article class="award">
+          <span class="award__icon">🏅</span>
+          <div>
+            <h3>VP of the Year 2025</h3>
+            <span class="award__org">Venturas Ltd</span>
+            <p>Awarded to engineers selected on impact, contribution, growth, and trust &amp; value-fit. Recognized for staying committed, pushing productivity beyond expectations, and bringing impactful ideas that added value — appreciated and trusted by clients and team.</p>
+          </div>
+        </article>
+        <article class="award">
+          <span class="award__icon">🏆</span>
+          <div>
+            <h3>Champion — Intra University Programming Contest</h3>
+            <span class="award__org">CSE Fest 2019, Khulna University</span>
+            <p>First place in the university-wide competitive programming contest.</p>
+          </div>
+        </article>
+        <article class="award">
+          <span class="award__icon">⭐</span>
+          <div>
+            <h3>Performer of the Month</h3>
+            <span class="award__org">Robi Axiata Ltd</span>
+            <p>Recognized for outstanding contribution and performance during tenure.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="section" id="testimonials">
+      <div class="section__head reveal">
+        <span class="section__index">08</span>
+        <h2>Recommendations</h2>
+      </div>
+      <div class="quotes">
+        <figure class="quote reveal">
+          <div class="quote__head">
+            <img src="assets/people/yoriko.png" alt="Yoriko Ueda" class="quote__pic" />
+            <figcaption><b>Yoriko Ueda</b><span>Founder &amp; CEO, Venturas Ltd</span></figcaption>
+          </div>
+          <blockquote class="clamp">As the CEO of Venturas, I had the opportunity to work closely with Abir and observe his growth, performance, and contributions throughout one of our most demanding client projects. What always stood out to me was not only his technical capability, but also his exceptional sense of ownership, accountability, and integrity. Even under challenging project conditions and significant uncertainty, Abir consistently demonstrated professionalism, maturity, and a strong commitment to delivering results. Through his honesty, reliability, and dedication, he earned deep trust from both the client and his colleagues. One of Abir's greatest strengths is his ability to go beyond pure implementation work. He actively seeks to understand business context, anticipates potential issues, communicates thoughtfully, and takes responsibility for outcomes. These qualities make him much more than a technically capable engineer. Throughout his time at Venturas, I came to view Abir as one of the rare professionals who successfully balances strong technical capability with strong human capability. He is thoughtful, sincere, and deeply committed to doing what is right for the project and the people around him. I have long believed that Abir has potential beyond a traditional engineering role. His combination of technical expertise, ownership, communication skills, and professional integrity positions him well for broader leadership responsibilities in the future. I strongly recommend Abir to any organization seeking a highly responsible and trustworthy professional who can bridge technology, people, and business objectives.</blockquote>
+          <button class="quote__more">See more ↓</button>
+        </figure>
+
+        <figure class="quote reveal">
+          <div class="quote__head">
+            <img src="assets/people/ryo.png" alt="Ryo Murata" class="quote__pic" />
+            <figcaption><b>Ryo Murata</b><span>IT Lead, ZUU Corp · Tokyo</span></figcaption>
+          </div>
+          <blockquote class="clamp">I highly recommend Abir, who worked with us as a contract backend engineer via VENTURAS Co., Ltd. As his Group Leader and Team Leader at ZUU, I directly managed his hiring, onboarding, and day-to-day work for about a year. Abir's greatest strengths are his solid Go (Golang) expertise in high-traffic environments and his unwavering commitment to code quality. Operating within a massive codebase for a financial media platform serving over 30 million monthly PVs, he consistently delivered robust backend features and critical bug fixes. Notably, he spearheaded the creation and maintenance of Go unit tests, significantly elevating our system reliability. Furthermore, Abir possesses exceptional technical foresight. He continuously looked beyond standard backend tasks to explore emerging technologies. For instance, when the Model Context Protocol (MCP) began gaining traction, he preemptively initiated discussions on how our organization should securely govern its usage. He is also a highly adaptable team player. When our offshore operations began with two engineers, Abir dedicated himself to mentoring his peer. Even after becoming the sole offshore engineer, he perfectly synchronized with our rigorous Agile methodologies. Despite working fully remotely, his output was always seamless and high-quality. Abir is a reliable, sharp, and forward-thinking engineer who will undoubtedly be an indispensable asset to any global engineering team.</blockquote>
+          <button class="quote__more">See more ↓</button>
+        </figure>
+
+        <figure class="quote reveal">
+          <div class="quote__head">
+            <img src="assets/people/doeyon.png" alt="Doeyon Kim" class="quote__pic" />
+            <figcaption><b>Doeyon Kim</b><span>IT Consultant · Tokyo</span></figcaption>
+          </div>
+          <blockquote class="clamp">I worked with Abir for about a year, supporting him as a full-stack engineer while bridging communication between our Bengali and Japanese teams. From the start, he impressed me with his technical depth, especially in Golang, and his thoughtful, systematic approach to problem-solving. Abir dove deep into complex issues, even when there was no proper manuals or documentation, investigating every layer until he fully understood and resolved them. He independently identified and fixed critical bugs in our CI pipeline and RSS feature and delivered stable, lasting solutions that made a real difference for the team. But what stood out the most beyond his engineering skills is his remarkable adaptability and professionalism. He quickly learned our product, respected Japanese work culture, and consistently pushed himself to grow. His dedication and reliability kept the team steady through challenges, and his curiosity lifted the whole group. I strongly recommend Abir as a dependable and thoughtful engineer who delivers with integrity and persistence.</blockquote>
+          <button class="quote__more">See more ↓</button>
+        </figure>
+
+        <figure class="quote reveal">
+          <div class="quote__head">
+            <img src="assets/people/asraful.png" alt="Asraful Samad Chowdhury" class="quote__pic" />
+            <figcaption><b>Asraful Samad Chowdhury</b><span>Senior Staff Engineer, Digital Payments Ltd</span></figcaption>
+          </div>
+          <blockquote class="clamp">I had the pleasure of working with Abir for two years on Pathao Pay, where he quickly proved himself to be a valuable team member. As a fresher, he adapted well to the fast-paced environment and took on critical responsibilities, particularly in load testing (K6) and external party integrations. Abir played a key role in ensuring the scalability and performance of our systems through rigorous load testing, identifying bottlenecks, and optimizing processes. He also contributed significantly to integrating third-party services, handling API integrations efficiently and troubleshooting issues with diligence. His ability to learn quickly, take ownership, and collaborate effectively made a strong impact on our team. I have no doubt that Abir will continue to grow and excel in his career. He would be a great asset to any team looking for a dedicated and capable engineer!</blockquote>
+          <button class="quote__more">See more ↓</button>
+        </figure>
+
+        <figure class="quote reveal">
+          <div class="quote__head">
+            <img src="assets/people/anisuzzaman.png" alt="Anisuzzaman Babla" class="quote__pic" />
+            <figcaption><b>Anisuzzaman Babla</b><span>Staff Software Engineer, Pathao Pay</span></figcaption>
+          </div>
+          <blockquote class="clamp">It was a pleasure to work with Abir and witness his growth and contributions at Pathao Pay. He played a significant role in integrating payment gateways, designing encrypted communication channels, and ensuring reliable transaction flows. During his time, he not only became well-versed in the fintech domain but also gained hands-on experience with microservice-based architectures and event-driven workflows. Beyond his technical skills, what stands out most is his curiosity and dedication to continuous improvement. His proactive mindset, enthusiasm, and eagerness to learn make him a truly valuable addition to any team. I strongly recommend him and have no doubt he'll continue to grow and make meaningful contributions wherever he goes. I wish him the very best in all his future endeavors!</blockquote>
+          <button class="quote__more">See more ↓</button>
+        </figure>
+      </div>
+    </section>
+
+    <!-- EXTRAS -->
+    <section class="section" id="extras">
+      <div class="extras reveal">
+        <div class="extras__col">
+          <h4>🧩 Competitive Programming</h4>
+          <ul>
+            <li>1000+ problems solved across 11+ onsite contests</li>
+            <li>ACM ICPC Dhaka Regional 2018, 2019, 2020</li>
+            <li>UVA Global Rank 2891 · 5★ HackerRank</li>
+            <li>Handle: fardin_abir</li>
+          </ul>
+        </div>
+        <div class="extras__col">
+          <h4>🌱 Community &amp; Leadership</h4>
+          <ul>
+            <li>Programming Instructor — trained 120+ students at Mojaru</li>
+            <li>General Secretary — CLUSTER, Khulna University</li>
+            <li>President &amp; Founding Member — Pashe Achi Amra</li>
+            <li>Active on Medium writing on systems &amp; backend</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section section--contact" id="contact">
+      <div class="contact reveal">
+        <span class="section__index">09</span>
+        <h2>Let's build something.</h2>
+        <p>Open to backend / platform roles and interesting collaborations. The fastest way to reach me:</p>
+        <a class="contact__mail" href="mailto:fardinabir@gmail.com">fardinabir@gmail.com</a>
+        <div class="contact__links">
+          <a href="https://linkedin.com/in/fardinabir" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://github.com/fardinabir" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://medium.com/@kazifardinislamabir" target="_blank" rel="noopener">Medium</a>
+          <a href="https://www.hackerrank.com/fardin_abir" target="_blank" rel="noopener">HackerRank</a>
+          <a href="https://wa.me/8801770045492" target="_blank" rel="noopener">WhatsApp</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span>© <span id="year"></span> Kazi Fardin Islam Abir</span>
+    <span>Built with vanilla HTML · CSS · JS</span>
+  </footer>
+
+  <!-- Recommendation modal -->
+  <div class="modal" id="recModal" aria-hidden="true">
+    <div class="modal__backdrop" data-close></div>
+    <div class="modal__box" role="dialog" aria-modal="true" aria-labelledby="recModalName">
+      <button class="modal__close" data-close aria-label="Close">&times;</button>
+      <div class="modal__head">
+        <img class="modal__pic" id="recModalPic" alt="" />
+        <div>
+          <b id="recModalName"></b>
+          <span id="recModalRole"></span>
+        </div>
+      </div>
+      <div class="modal__body" id="recModalBody"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
