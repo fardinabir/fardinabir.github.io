@@ -56,7 +56,7 @@ function openModal(figure) {
   modalPic.alt = pic.alt;
   modalName.textContent = cap.querySelector("b").textContent;
   modalRole.textContent = cap.querySelector("span").textContent;
-  modalBody.textContent = figure.querySelector("blockquote").textContent.trim();
+  modalBody.innerHTML = figure.querySelector("blockquote").innerHTML.trim();
   modal.classList.add("open");
   modal.setAttribute("aria-hidden", "false");
   document.body.style.overflow = "hidden";
@@ -89,6 +89,23 @@ const io = new IntersectionObserver(
   { threshold: 0.12 }
 );
 document.querySelectorAll(".reveal").forEach((el) => io.observe(el));
+
+// experience timeline: each block builds in only when scrolled to it
+const tlObs = new IntersectionObserver(
+  (entries) => {
+    // reveal one at a time, in document order, with a small stagger if several cross at once
+    const fresh = entries
+      .filter((en) => en.isIntersecting)
+      .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+    fresh.forEach((en, i) => {
+      const el = en.target;
+      setTimeout(() => el.classList.add("in"), i * 180);
+      tlObs.unobserve(el);
+    });
+  },
+  { threshold: 0, rootMargin: "0px 0px -45% 0px" }
+);
+document.querySelectorAll(".tl").forEach((el) => tlObs.observe(el));
 
 // count-up stats
 function animateCount(el) {
