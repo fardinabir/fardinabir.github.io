@@ -17,7 +17,6 @@ links.addEventListener("click", (e) => {
 
 // typewriter role
 const roles = [
-  "Technical Consultant",
   "Software Engineer",
   "Backend Engineer · Go",
   "Microservices & FinTech",
