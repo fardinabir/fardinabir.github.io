@@ -28,6 +28,7 @@
     <a href="#hero" class="nav__logo">KFA<span>.</span></a>
     <nav class="nav__links">
       <a href="#about">About</a>
+      <a href="#video-recs">Video Refs</a>
       <a href="#experience">Experience</a>
       <a href="#projects">Projects</a>
       <a href="#testimonials">Recommendations</a>
@@ -71,6 +72,19 @@
         <span class="hero__blob hero__blob--2" aria-hidden="true"></span>
       </div>
       <div class="hero__scroll">scroll ↓</div>
+    </section>
+
+    <!-- VIDEO RECOMMENDATIONS (edit the VIDEO_RECS list at the top of script.js) -->
+    <section class="section vidrec" id="video-recs">
+      <div class="section__head reveal">
+        <span class="section__index">▶</span>
+        <h2>Hear It From My Managers</h2>
+      </div>
+      <p class="vidrec__lead reveal">
+        Words from the people I reported to, on what it was like
+        to work with me.
+      </p>
+      <div class="vidrec__grid reveal" id="vidrecGrid"></div>
     </section>
 
     <!-- ABOUT -->
@@ -436,9 +450,85 @@
       </div>
     </section>
 
+    <!-- PUBLICATIONS -->
+    <section class="section" id="publications">
+      <div class="section__head reveal">
+        <span class="section__index">08</span>
+        <h2>Publications</h2>
+      </div>
+      <div class="pubs reveal">
+        <article class="pub">
+          <span class="pub__icon">📄</span>
+          <div class="pub__body">
+            <h3>Local Inventory Demand Forecasting of E-Commerce with MapReduce Framework</h3>
+            <div class="pub__meta">
+              <span>ICSTEM4IR Conference 2022</span>
+              <span>Khulna University Studies · Nov 2022</span>
+            </div>
+            <p>Big-data approach to forecasting localized inventory demand for e-commerce using the MapReduce framework over large transaction volumes.</p>
+            <div class="pub__foot">
+              <a class="pub__link" href="https://www.researchgate.net/publication/365474493_LOCAL_INVENTORY_DEMAND_FORECASTING_OF_E-COMMERCE_WITH_MAPREDUCE_FRAMEWORK" target="_blank" rel="noopener">View paper ↗</a>
+              <span class="pub__doi">DOI: 10.53808/KUS.2022.ICSTEM4IR.0082-se</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- LEADERSHIP & COMMUNITY -->
+    <section class="section" id="leadership">
+      <div class="section__head reveal">
+        <span class="section__index">09</span>
+        <h2>Leadership &amp; Community</h2>
+      </div>
+      <div class="lead">
+        <article class="lead__card reveal">
+          <div class="lead__head">
+            <h3>President</h3>
+            <span class="lead__cat">Social Services</span>
+          </div>
+          <span class="lead__org">Pashe Achi Amra</span>
+          <span class="lead__date">Jun 2019 — Jan 2023 · 3 yrs 8 mos</span>
+          <p>A voluntary organization working for the socioeconomic development of the southern rural area of Jashore.</p>
+          <a class="lead__link" href="http://tiny.cc/pasheachiamrabd" target="_blank" rel="noopener">Learn more ↗</a>
+        </article>
+
+        <article class="lead__card reveal">
+          <div class="lead__head">
+            <h3>General Secretary</h3>
+            <span class="lead__cat">Science &amp; Technology</span>
+          </div>
+          <span class="lead__org">CLUSTER — CSE, Khulna University</span>
+          <span class="lead__date">Jan 2020 — Jun 2021 · 1 yr 6 mos</span>
+          <p>The student club of CSE, Khulna University — arranging tech events, contests, and driving undergrad engagement with trending tech.</p>
+          <div class="lead__tags"><span>Leadership</span><span>Communication</span><span>Tech Sessions</span></div>
+        </article>
+
+        <article class="lead__card reveal">
+          <div class="lead__head">
+            <h3>Campus Ambassador</h3>
+            <span class="lead__cat">Education</span>
+          </div>
+          <span class="lead__org">Bangladesh Open Source Network (BdOSN)</span>
+          <span class="lead__date">Jan 2018 — Jan 2021 · 3 yrs 1 mo</span>
+          <p>Organized several workshops promoting the pleasure of programming among students.</p>
+        </article>
+
+        <article class="lead__card reveal">
+          <div class="lead__head">
+            <h3>Programming Mentor</h3>
+            <span class="lead__cat">Science &amp; Technology</span>
+          </div>
+          <span class="lead__org">Satkhira Public School and College</span>
+          <span class="lead__date">Jun 2019 — Jan 2020 · 8 mos</span>
+          <p>Ran programming campaigns for secondary-level students; several later achieved prestigious rankings in NHSPC and IOI.</p>
+        </article>
+      </div>
+    </section>
+
     <!-- EXTRAS -->
     <section class="section" id="extras">
-      <div class="extras reveal">
+      <div class="extras extras--single reveal">
         <div class="extras__col">
           <h4>🧩 Competitive Programming</h4>
           <ul>
@@ -446,15 +536,6 @@
             <li>ACM ICPC Dhaka Regional 2018, 2019, 2020</li>
             <li>UVA Global Rank 2891 · 5★ HackerRank</li>
             <li>Handle: fardin_abir</li>
-          </ul>
-        </div>
-        <div class="extras__col">
-          <h4>🌱 Community &amp; Leadership</h4>
-          <ul>
-            <li>Programming Instructor — trained 120+ students at Mojaru</li>
-            <li>General Secretary — CLUSTER, Khulna University</li>
-            <li>President &amp; Founding Member — Pashe Achi Amra</li>
-            <li>Active on Medium writing on systems &amp; backend</li>
           </ul>
         </div>
       </div>
@@ -505,6 +586,19 @@
         </div>
       </div>
       <div class="modal__body" id="recModalBody"></div>
+    </div>
+  </div>
+
+  <!-- Video recommendation modal -->
+  <div class="modal modal--video" id="vidModal" aria-hidden="true">
+    <div class="modal__backdrop" data-vclose></div>
+    <div class="modal__box modal__box--video" role="dialog" aria-modal="true" aria-labelledby="vidModalName">
+      <button class="modal__close" data-vclose aria-label="Close">&times;</button>
+      <div class="vidmodal__frame" id="vidModalFrame"></div>
+      <div class="vidmodal__meta">
+        <b id="vidModalName"></b>
+        <span id="vidModalRole"></span>
+      </div>
     </div>
   </div>
 
