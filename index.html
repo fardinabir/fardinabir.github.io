@@ -236,90 +236,93 @@
         <span class="section__index">03</span>
         <h2>Areas of Expertise</h2>
       </div>
-      <!-- tabindex makes the horizontal scroller reachable by keyboard -->
+      <!-- One set of cards. script.js clones it so the marquee can loop seamlessly;
+           without JS this stays a plain manually-scrollable row. -->
       <div class="expertise reveal" tabindex="0" role="group" aria-label="Areas of expertise">
-        <article class="exp">
-          <span class="exp__icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/>
-            </svg>
-          </span>
-          <h3>FinTech</h3>
-          <p>Wallets, payment gateways, tokenized &amp; encrypted transactions at the scale of millions of users.</p>
-        </article>
-        <article class="exp">
-          <span class="exp__icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/>
-              <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/>
-            </svg>
-          </span>
-          <h3>E-commerce</h3>
-          <p>Transaction flows, merchant integrations and reliable checkout experiences within large ecosystems.</p>
-        </article>
-        <article class="exp">
-          <span class="exp__icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2Zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/>
-              <path d="M18 14h-8"/><path d="M15 18h-5"/><path d="M10 6h8v4h-8V6Z"/>
-            </svg>
-          </span>
-          <h3>Media</h3>
-          <p>High-traffic content platforms — feed ingestion, search, caching and API performance under peak load.</p>
-        </article>
-        <article class="exp">
-          <span class="exp__icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/>
-              <circle cx="12" cy="12" r="3"/>
-            </svg>
-          </span>
-          <h3>Automation</h3>
-          <p>Reconciliation jobs, detection models and pipelines that cut manual effort and operational time.</p>
-        </article>
-        <article class="exp">
-          <span class="exp__icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/>
-              <path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/>
-              <path d="M7 21h10"/><path d="M12 3v18"/><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/>
-            </svg>
-          </span>
-          <h3>Legal Systems</h3>
-          <p>Compliance-driven platforms — audit trails, regulated workflows and records built to survive scrutiny.</p>
-        </article>
-        <article class="exp">
-          <span class="exp__icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M4.9 16.1C1 12.2 1 5.8 4.9 1.9"/><path d="M7.8 4.7a6.14 6.14 0 0 0-.8 7.5"/>
-              <circle cx="12" cy="9" r="2"/><path d="M16.2 4.8c2 2 2.26 5.11.8 7.47"/>
-              <path d="M19.1 1.9a9.96 9.96 0 0 1 0 14.1"/><path d="M9.5 18h5"/><path d="m8 22 4-11 4 11"/>
-            </svg>
-          </span>
-          <h3>Telecommunications</h3>
-          <p>Carrier-scale operations — reconciliation, grey-traffic barring and fraud detection over huge volumes.</p>
-        </article>
-        <article class="exp">
-          <span class="exp__icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/>
-              <rect x="8.5" y="14" width="7" height="7" rx="1.5"/>
-              <path d="M6.5 10v2a2 2 0 0 0 2 2h.5"/><path d="M17.5 10v2a2 2 0 0 1-2 2H15"/>
-            </svg>
-          </span>
-          <h3>Microservices</h3>
-          <p>Service decomposition, event-driven workflows and contracts that hold up under production load.</p>
-        </article>
-        <article class="exp">
-          <span class="exp__icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/>
-              <path d="m9 12 2 2 4-4"/>
-            </svg>
-          </span>
-          <h3>Secured Systems</h3>
-          <p>Encrypted channels, tokenization and key handling for systems where a breach is not an option.</p>
-        </article>
+        <div class="expertise__set">
+          <article class="exp">
+            <span class="exp__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/>
+              </svg>
+            </span>
+            <h3>FinTech</h3>
+            <p>Wallets, payment gateways, tokenized &amp; encrypted transactions at the scale of millions of users.</p>
+          </article>
+          <article class="exp">
+            <span class="exp__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/>
+                <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/>
+              </svg>
+            </span>
+            <h3>E-commerce</h3>
+            <p>Transaction flows, merchant integrations and reliable checkout experiences within large ecosystems.</p>
+          </article>
+          <article class="exp">
+            <span class="exp__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2Zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/>
+                <path d="M18 14h-8"/><path d="M15 18h-5"/><path d="M10 6h8v4h-8V6Z"/>
+              </svg>
+            </span>
+            <h3>Media</h3>
+            <p>High-traffic content platforms — feed ingestion, search, caching and API performance under peak load.</p>
+          </article>
+          <article class="exp">
+            <span class="exp__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/>
+                <circle cx="12" cy="12" r="3"/>
+              </svg>
+            </span>
+            <h3>Automation</h3>
+            <p>Reconciliation jobs, detection models and pipelines that cut manual effort and operational time.</p>
+          </article>
+          <article class="exp">
+            <span class="exp__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/>
+                <path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/>
+                <path d="M7 21h10"/><path d="M12 3v18"/><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/>
+              </svg>
+            </span>
+            <h3>Legal Systems</h3>
+            <p>Compliance-driven platforms — audit trails, regulated workflows and records built to survive scrutiny.</p>
+          </article>
+          <article class="exp">
+            <span class="exp__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M4.9 16.1C1 12.2 1 5.8 4.9 1.9"/><path d="M7.8 4.7a6.14 6.14 0 0 0-.8 7.5"/>
+                <circle cx="12" cy="9" r="2"/><path d="M16.2 4.8c2 2 2.26 5.11.8 7.47"/>
+                <path d="M19.1 1.9a9.96 9.96 0 0 1 0 14.1"/><path d="M9.5 18h5"/><path d="m8 22 4-11 4 11"/>
+              </svg>
+            </span>
+            <h3>Telecommunications</h3>
+            <p>Carrier-scale operations — reconciliation, grey-traffic barring and fraud detection over huge volumes.</p>
+          </article>
+          <article class="exp">
+            <span class="exp__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/>
+                <rect x="8.5" y="14" width="7" height="7" rx="1.5"/>
+                <path d="M6.5 10v2a2 2 0 0 0 2 2h.5"/><path d="M17.5 10v2a2 2 0 0 1-2 2H15"/>
+              </svg>
+            </span>
+            <h3>Microservices</h3>
+            <p>Service decomposition, event-driven workflows and contracts that hold up under production load.</p>
+          </article>
+          <article class="exp">
+            <span class="exp__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/>
+                <path d="m9 12 2 2 4-4"/>
+              </svg>
+            </span>
+            <h3>Secured Systems</h3>
+            <p>Encrypted channels, tokenization and key handling for systems where a breach is not an option.</p>
+          </article>
+        </div>
       </div>
     </section>
 
@@ -492,6 +495,14 @@
             <h3>Performer of the Month</h3>
             <span class="award__org">Robi Axiata Ltd</span>
             <p>Recognized for outstanding contribution and performance during tenure.</p>
+          </div>
+        </article>
+        <article class="award">
+          <span class="award__icon">✍️</span>
+          <div>
+            <h3>Problem Setter — Programming Contest</h3>
+            <span class="award__org">NWU CSE Fest 2023</span>
+            <p>Recognized for authoring and curating the problem set for the programming contest segment of the festival.</p>
           </div>
         </article>
       </div>

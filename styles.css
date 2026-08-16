@@ -295,14 +295,14 @@ main { width: 100%; }
   display: flex; justify-content: space-between; flex-wrap: wrap; gap: .5rem; color: var(--muted); font-size: .82rem; font-family: var(--mono); }
 
 /* ===== Areas of Expertise ===== */
-/* horizontal scroller: cards keep a fixed width and the row scrolls sideways.
-   The vertical padding exists so the :hover lift isn't clipped by overflow. */
+/* Base state = a plain manually-scrollable row. This is what shows if JS
+   never runs. The vertical padding keeps the :hover lift from being
+   clipped by the overflow container. */
 .expertise {
-  display: flex; gap: 1.4rem;
+  display: flex;
   overflow-x: auto; overflow-y: hidden;
   padding: .6rem .2rem 1.2rem;
   margin: -.6rem -.2rem 0;
-  scroll-snap-type: x proximity;
   scrollbar-width: thin;
   scrollbar-color: var(--line) transparent;
   -webkit-overflow-scrolling: touch;
@@ -312,11 +312,32 @@ main { width: 100%; }
 .expertise::-webkit-scrollbar-thumb { background: var(--line); border-radius: 8px; }
 .expertise::-webkit-scrollbar-thumb:hover { background: #2e3542; }
 .expertise:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; border-radius: var(--radius); }
+.expertise__set { display: flex; gap: 1.4rem; padding-right: 1.4rem; flex: 0 0 auto; }
 .exp {
   flex: 0 0 clamp(226px, 26vw, 264px);
-  scroll-snap-align: start;
   background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius);
   padding: 1.6rem; transition: .3s; position: relative; overflow: hidden;
+}
+
+/* Marquee mode — switched on by script.js once it has cloned the set.
+   Two identical sets sit side by side; sliding each left by exactly its own
+   width means the clone lands where the original started, so the loop is
+   seamless with no visible jump. */
+.expertise--marquee { overflow: hidden; scrollbar-width: none; }
+.expertise--marquee::-webkit-scrollbar { display: none; }
+.expertise--marquee .expertise__set {
+  animation: exp-marquee var(--exp-marquee-duration, 45s) linear infinite;
+  will-change: transform;
+}
+/* pause when someone wants to actually read a card */
+.expertise--marquee:hover .expertise__set,
+.expertise--marquee:focus-within .expertise__set { animation-play-state: paused; }
+@keyframes exp-marquee { to { transform: translateX(-100%); } }
+
+/* edges fade out so cards enter and leave instead of being chopped off */
+.expertise--marquee {
+  mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent);
 }
 .exp::after { content: ""; position: absolute; left: 0; top: 0; height: 3px; width: 100%;
   background: var(--grad); transform: scaleX(0); transform-origin: left; transition: .35s; }
@@ -575,6 +596,8 @@ main { width: 100%; }
   .hero__frame, .hero__photo::after { animation: none; }
   .tl::before, .tl__dot { transform: none; }
   .tl__body { opacity: 1; transform: none; }
+  .expertise--marquee .expertise__set { animation: none; }
+  .expertise--marquee { overflow-x: auto; mask-image: none; -webkit-mask-image: none; }
   .vidrec__grid .vcard { opacity: 1; transform: none; }
   .vidrec__grid.in .vcard { transition: none; transition-delay: 0s; }
   .vcard__thumb img, .vcard__play { transition: none; }

@@ -117,6 +117,30 @@ document.addEventListener("keydown", (e) => {
   if (e.key === "Escape" && modal.classList.contains("open")) closeModal();
 });
 
+// Areas of Expertise marquee. The set of cards is duplicated so the row can
+// loop without a visible seam; CSS then slides each copy left by its own width.
+(function () {
+  const rail = document.querySelector(".expertise");
+  const set = rail && rail.querySelector(".expertise__set");
+  if (!rail || !set) return;
+
+  // someone who asked for less motion keeps the plain scrollable row
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+  const clone = set.cloneNode(true);
+  clone.setAttribute("aria-hidden", "true"); // screen readers read the cards once
+  rail.appendChild(clone);
+
+  // derive the duration from the width so the speed stays constant no matter
+  // how many cards get added later
+  const pxPerSecond = 55;
+  const width = set.getBoundingClientRect().width;
+  if (width > 0) {
+    rail.style.setProperty("--exp-marquee-duration", (width / pxPerSecond).toFixed(1) + "s");
+  }
+  rail.classList.add("expertise--marquee");
+})();
+
 // video recommendations (edit the VIDEO_RECS list at the top of this file)
 (function () {
   const section = document.getElementById("video-recs");
