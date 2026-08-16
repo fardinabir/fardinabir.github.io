@@ -18,6 +18,10 @@
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
+/* Cards below set `display: flex`, which would beat the browser's built-in
+   [hidden] rule and leave "hidden" elements still occupying layout. */
+[hidden] { display: none !important; }
+
 html { scroll-behavior: smooth; }
 
 body {
@@ -410,6 +414,11 @@ main { width: 100%; }
   border-radius: var(--radius); padding: 1.6rem 1.7rem; transition: .3s; }
 .pub:hover { border-color: rgba(56,189,248,.4); transform: translateY(-4px); }
 .pub__icon { font-size: 1.8rem; flex-shrink: 0; }
+/* a flex child defaults to min-width:auto, so the unbreakable DOI string
+   refused to shrink and pushed the page wider than the viewport on narrow
+   screens — these two let it wrap instead */
+.pub__body { min-width: 0; }
+.pub__doi { overflow-wrap: anywhere; }
 .pub__body h3 { font-size: 1.18rem; font-weight: 700; line-height: 1.35; margin-bottom: .6rem; }
 .pub__meta { display: flex; flex-wrap: wrap; gap: .5rem .9rem; margin-bottom: .8rem;
   font-family: var(--mono); font-size: .78rem; color: var(--accent-2); }
@@ -578,7 +587,6 @@ main { width: 100%; }
   .vcard__play svg { width: 19px; height: 19px; }
 }
 @media (max-width: 560px) {
-  .certs { grid-template-columns: 1fr; }
   .vidrec__lead { margin-bottom: 1.8rem; }
   .vcard__meta b { font-size: 1rem; }
   .vcard__meta span { font-size: .76rem; }
@@ -591,6 +599,115 @@ main { width: 100%; }
   .vidmodal__meta b { font-size: 1rem; }
   .vidmodal__meta span { font-size: .78rem; }
 }
+/* ===== Show more / less toggle ===== */
+/* inserted by script.js next to any list it collapses; hidden on desktop */
+.showmore {
+  display: inline-flex; align-items: center; gap: .4rem;
+  margin-top: 1.1rem; padding: .55rem 1.05rem;
+  background: none; border: 1px solid var(--line); border-radius: 999px;
+  color: var(--accent); font-family: var(--mono); font-size: .8rem;
+  cursor: pointer; transition: .25s;
+}
+.showmore:hover { border-color: var(--accent); color: var(--accent-2); }
+.showmore:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+/* ===== Mobile refinements =====
+   Phones and small tablets only — the desktop layout is untouched. The page
+   measured ~15,600px tall at 390px wide before these. */
+@media (max-width: 820px) {
+  .section { padding: clamp(2.8rem, 8vw, 4.4rem) clamp(1.1rem, 4vw, 2rem); }
+  .section__head { margin-bottom: 1.7rem; }
+
+  /* ── About: facts first (what gets scanned), prose folded behind a button ── */
+  .about { gap: 1.4rem; }
+  .about__facts { order: -1; }
+  .about__text { position: relative; }
+  .about__text--clamped { max-height: 10.5em; overflow: hidden; }
+  .about__text--clamped::after {
+    content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 4.5em;
+    background: linear-gradient(180deg, transparent, var(--bg));
+    pointer-events: none;
+  }
+
+  /* ── Experience: logo and company name stay on one line together; the
+       date/location block drops beneath them and aligns left instead of
+       floating right, which read as detached from the entry. ── */
+  .timeline { padding-left: 1.15rem; }
+  .tl { padding-left: 1.15rem; padding-bottom: 2.2rem; }
+  /* the dot and the connector line must move together — the line's +5px and
+     the dot's 12px width put both centres on the same axis */
+  .tl__dot { left: -1.15rem; }
+  .tl::before { left: calc(-1.15rem + 5px); }
+  .tl__company { gap: .75rem; row-gap: .5rem; align-items: center; margin-bottom: .85rem; }
+  .tl__logo { width: 40px; height: 40px; border-radius: 10px; }
+  .tl__company h3 { font-size: 1.1rem; }
+  .tl__company > div:not(.tl__meta) { padding-left: 0; }
+  .tl__meta {
+    margin-left: 0; flex-basis: 100%; flex-direction: row; flex-wrap: wrap;
+    align-items: baseline; text-align: left; gap: .1rem .55rem;
+  }
+  .tl__loc::before { content: "·"; color: var(--muted); margin-right: .5rem; }
+  .tl__body li { font-size: .92rem; }
+
+  /* ── Areas of Expertise: label-only pills, descriptions dropped ── */
+  .exp {
+    flex: 0 0 auto; display: flex; align-items: center; gap: .65rem;
+    padding: .7rem 1.1rem .7rem .7rem; border-radius: 999px;
+  }
+  .exp::after { display: none; }
+  .exp p { display: none; }
+  .exp h3 { font-size: .92rem; margin-bottom: 0; white-space: nowrap; }
+  .exp__icon { width: 32px; height: 32px; margin-bottom: 0; border-radius: 50%; }
+  .exp__icon svg { width: 16px; height: 16px; }
+  .expertise__set { gap: .7rem; padding-right: .7rem; }
+
+  /* ── Projects: two per row; blurbs trimmed while they still have width ── */
+  .projects { grid-template-columns: repeat(2, 1fr); gap: .8rem; }
+  .card { padding: 1.15rem 1.2rem; }
+  .card__top { margin-bottom: .7rem; }
+  .card__icon { font-size: 1.5rem; }
+  .card h3 { font-size: 1.05rem; margin-bottom: .45rem; }
+  .card p {
+    display: -webkit-box; -webkit-line-clamp: 3; line-clamp: 3;
+    -webkit-box-orient: vertical; overflow: hidden; margin-bottom: .8rem; font-size: .84rem;
+  }
+
+  /* ── Certifications: two per row, tightened ── */
+  .certs { grid-template-columns: repeat(2, 1fr); gap: .7rem; }
+  .cert { padding: .9rem .95rem; }
+  .cert h4 { font-size: .88rem; line-height: 1.32; }
+  .cert__issuer { font-size: .63rem; letter-spacing: .8px; }
+  .cert__date { font-size: .73rem; }
+
+  /* ── Awards: citation trimmed to keep the list scannable ── */
+  .award { padding: 1.1rem 1.15rem; gap: .8rem; }
+  .award__icon { font-size: 1.6rem; }
+  .award h3 { font-size: 1.02rem; }
+  .award p {
+    display: -webkit-box; -webkit-line-clamp: 3; line-clamp: 3;
+    -webkit-box-orient: vertical; overflow: hidden;
+  }
+
+  /* ── Leadership: prose trimmed, rest behind the toggle ── */
+  .lead__card p {
+    display: -webkit-box; -webkit-line-clamp: 3; line-clamp: 3;
+    -webkit-box-orient: vertical; overflow: hidden;
+  }
+}
+
+/* Narrow phones: at two columns a card is only ~170px wide, which turns the
+   blurb into three-word lines. Drop it and let icon + name + stack speak —
+   the card links straight to the repo anyway. Must sit after the 820px block
+   to win the cascade. */
+@media (max-width: 560px) {
+  .card { padding: 1rem 1.05rem; }
+  .card p { display: none; }
+  .card h3 { font-size: 1rem; margin-bottom: .55rem; }
+  .card__icon { font-size: 1.35rem; }
+  .card__tags { gap: .35rem; }
+  .card__tags span { font-size: .66rem; padding: .18rem .5rem; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .reveal { opacity: 1; transform: none; transition: none; }
   .hero__frame, .hero__photo::after { animation: none; }

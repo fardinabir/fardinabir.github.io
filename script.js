@@ -134,11 +134,90 @@ document.addEventListener("keydown", (e) => {
   // derive the duration from the width so the speed stays constant no matter
   // how many cards get added later
   const pxPerSecond = 55;
-  const width = set.getBoundingClientRect().width;
-  if (width > 0) {
-    rail.style.setProperty("--exp-marquee-duration", (width / pxPerSecond).toFixed(1) + "s");
+  function setDuration() {
+    const width = set.getBoundingClientRect().width;
+    if (width > 0) {
+      rail.style.setProperty("--exp-marquee-duration", (width / pxPerSecond).toFixed(1) + "s");
+    }
   }
+  setDuration();
   rail.classList.add("expertise--marquee");
+
+  // cards shrink to pills below 820px, so the track width — and therefore the
+  // duration needed to keep a constant speed — changes on resize/rotate
+  let t;
+  window.addEventListener("resize", () => {
+    clearTimeout(t);
+    t = setTimeout(setDuration, 200);
+  });
+})();
+
+// Mobile: fold long sections behind a toggle so the page isn't endless.
+// Everything stays fully expanded on desktop and when JS is unavailable.
+(function () {
+  const mq = window.matchMedia("(max-width: 820px)");
+  let seq = 0;
+
+  function makeButton(controls) {
+    const b = document.createElement("button");
+    b.type = "button";
+    b.className = "showmore";
+    b.setAttribute("aria-controls", controls);
+    return b;
+  }
+
+  // hides everything past `keep` while collapsed
+  function collapseList(container, keep, noun) {
+    if (!container) return;
+    const items = Array.from(container.children);
+    if (items.length <= keep) return;
+    if (!container.id) container.id = "collapsible-" + ++seq;
+
+    const btn = makeButton(container.id);
+    let open = false;
+
+    function apply() {
+      const collapsed = mq.matches && !open;
+      items.forEach((el, i) => { el.hidden = collapsed && i >= keep; });
+      btn.hidden = !mq.matches;
+      btn.textContent = open ? "Show less ↑" : `Show all ${items.length} ${noun} ↓`;
+      btn.setAttribute("aria-expanded", String(open));
+    }
+
+    btn.addEventListener("click", () => { open = !open; apply(); });
+    container.after(btn);
+    apply();
+    mq.addEventListener("change", () => { open = false; apply(); });
+  }
+
+  collapseList(document.querySelector(".certs"), 4, "certifications");
+  collapseList(document.querySelector(".lead"), 2, "roles");
+  collapseList(document.querySelector(".quotes"), 3, "recommendations");
+
+  // About prose: clamped with a fade rather than cut off, so it reads as
+  // "there's more" instead of looking broken. The facts list above it is
+  // never hidden — that's the part a recruiter actually scans.
+  (function () {
+    const text = document.querySelector(".about__text");
+    if (!text) return;
+    if (!text.id) text.id = "aboutText";
+
+    const btn = makeButton(text.id);
+    let open = false;
+
+    function apply() {
+      const collapsed = mq.matches && !open;
+      text.classList.toggle("about__text--clamped", collapsed);
+      btn.hidden = !mq.matches;
+      btn.textContent = open ? "Read less ↑" : "Read more ↓";
+      btn.setAttribute("aria-expanded", String(open));
+    }
+
+    btn.addEventListener("click", () => { open = !open; apply(); });
+    text.after(btn);
+    apply();
+    mq.addEventListener("change", () => { open = false; apply(); });
+  })();
 })();
 
 // video recommendations (edit the VIDEO_RECS list at the top of this file)
