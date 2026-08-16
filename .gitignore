@@ -1,0 +1,5 @@
+# Pre-compression backups of the recommender photos.
+# Kept on disk only — the untouched originals are also permanently
+# recoverable from git history (commit d3ca99a and earlier), so there
+# is no need to publish 2.7 MB of unused images to the live site.
+assets/people/original/

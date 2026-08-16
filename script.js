@@ -10,6 +10,12 @@
    Videos must be UNLISTED on YouTube — Private ones cannot be embedded.
    Leave the list empty and the whole section removes itself cleanly.
    ────────────────────────────────────────────────────────────────────── */
+/* ── Feature flag: hero portrait ────────────────────────────────────────
+   false = portrait hidden, hero text spans the full width.
+   Flip to true to bring the photo back — no other change needed.
+   ────────────────────────────────────────────────────────────────────── */
+const SHOW_HERO_PHOTO = false;
+
 const VIDEO_RECS = [
   {
     url:   "https://www.youtube.com/embed/K-8ACnmvkjk?start=3",
@@ -22,6 +28,16 @@ const VIDEO_RECS = [
     title: "Engineering Lead, ZUU Corp",
   },
 ];
+
+// hero portrait feature flag (markup defaults to hidden; only turn it on)
+(function () {
+  if (!SHOW_HERO_PHOTO) return;
+  const hero = document.querySelector(".hero");
+  const photo = document.querySelector(".hero__photo");
+  if (!hero || !photo) return;
+  photo.hidden = false;
+  hero.classList.remove("hero--solo");
+})();
 
 // year
 document.getElementById("year").textContent = new Date().getFullYear();

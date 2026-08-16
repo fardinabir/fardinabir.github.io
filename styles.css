@@ -66,14 +66,17 @@ strong, b { color: #fff; font-weight: 600; }
 }
 .nav__logo { font-family: var(--mono); font-weight: 700; font-size: 1.15rem; letter-spacing: 1px; }
 .nav__logo span { color: var(--accent); }
-.nav__links { display: flex; gap: 1.6rem; margin-left: auto; font-size: .92rem; }
+.nav__links { display: flex; align-items: center; gap: 1.6rem; margin-left: auto; font-size: .92rem; }
 .nav__links a { color: var(--muted); transition: .2s; position: relative; }
 .nav__links a:hover { color: var(--text); }
-.nav__links a::after {
+/* the résumé button lives in here too, but shouldn't take the link underline */
+.nav__links a:not(.nav__cta)::after {
   content: ""; position: absolute; left: 0; bottom: -4px; height: 2px; width: 0;
   background: var(--grad); transition: .25s;
 }
-.nav__links a:hover::after { width: 100%; }
+.nav__links a:not(.nav__cta):hover::after { width: 100%; }
+.nav__links a.nav__cta { color: var(--accent); }
+.nav__links a.nav__cta:hover { color: var(--accent); }
 .nav__cta {
   font-family: var(--mono); font-size: .82rem; padding: .5rem .9rem;
   border: 1px solid var(--line); border-radius: 8px; color: var(--accent);
@@ -101,6 +104,9 @@ main { width: 100%; }
   padding: 6rem clamp(1.2rem, 4vw, 2rem) 3rem; position: relative;
 }
 .hero__inner { min-width: 0; }
+/* applied while the SHOW_HERO_PHOTO flag is off — text takes the full width */
+.hero--solo { grid-template-columns: 1fr; }
+.hero--solo .hero__desc { max-width: 720px; }
 
 /* asymmetric portrait frame */
 .hero__photo { position: relative; justify-self: center; width: min(360px, 80%); aspect-ratio: 5 / 5; }
@@ -289,8 +295,26 @@ main { width: 100%; }
   display: flex; justify-content: space-between; flex-wrap: wrap; gap: .5rem; color: var(--muted); font-size: .82rem; font-family: var(--mono); }
 
 /* ===== Areas of Expertise ===== */
-.expertise { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.4rem; }
+/* horizontal scroller: cards keep a fixed width and the row scrolls sideways.
+   The vertical padding exists so the :hover lift isn't clipped by overflow. */
+.expertise {
+  display: flex; gap: 1.4rem;
+  overflow-x: auto; overflow-y: hidden;
+  padding: .6rem .2rem 1.2rem;
+  margin: -.6rem -.2rem 0;
+  scroll-snap-type: x proximity;
+  scrollbar-width: thin;
+  scrollbar-color: var(--line) transparent;
+  -webkit-overflow-scrolling: touch;
+}
+.expertise::-webkit-scrollbar { height: 8px; }
+.expertise::-webkit-scrollbar-track { background: transparent; }
+.expertise::-webkit-scrollbar-thumb { background: var(--line); border-radius: 8px; }
+.expertise::-webkit-scrollbar-thumb:hover { background: #2e3542; }
+.expertise:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; border-radius: var(--radius); }
 .exp {
+  flex: 0 0 clamp(226px, 26vw, 264px);
+  scroll-snap-align: start;
   background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius);
   padding: 1.6rem; transition: .3s; position: relative; overflow: hidden;
 }
@@ -513,15 +537,18 @@ main { width: 100%; }
 /* ===== Responsive ===== */
 @media (max-width: 820px) {
   .about, .skills, .projects, .quotes, .extras, .lead, .vidrec__grid { grid-template-columns: 1fr; }
-  .expertise { grid-template-columns: repeat(2, 1fr); }
   .certs { grid-template-columns: repeat(2, 1fr); }
   .hero { grid-template-columns: 1fr; justify-items: center; text-align: left; gap: 2.5rem; }
   .hero__photo { order: -1; width: min(280px, 70%); margin-top: 1rem; }
-  .nav__links, .nav__cta { display: none; }
+  /* .nav__cta is deliberately NOT hidden here — it sits inside .nav__links
+     now, so hiding it separately would keep the résumé unreachable on phones */
+  .nav__links { display: none; }
   .nav__links.open {
-    display: flex; flex-direction: column; position: absolute; top: 100%; right: 0; left: 0;
+    display: flex; flex-direction: column; align-items: flex-start;
+    position: absolute; top: 100%; right: 0; left: 0;
     background: rgba(10,11,15,.96); border-bottom: 1px solid var(--line); padding: 1.2rem 2rem; gap: 1rem;
   }
+  .nav__links.open .nav__cta { margin-top: .2rem; }
   .nav__burger { display: flex; margin-left: auto; }
   .footer { flex-direction: column; }
   .modal__box--video { width: min(900px, 96vw); padding: 2.8rem .8rem .9rem; }
@@ -530,7 +557,7 @@ main { width: 100%; }
   .vcard__play svg { width: 19px; height: 19px; }
 }
 @media (max-width: 560px) {
-  .expertise, .certs { grid-template-columns: 1fr; }
+  .certs { grid-template-columns: 1fr; }
   .vidrec__lead { margin-bottom: 1.8rem; }
   .vcard__meta b { font-size: 1rem; }
   .vcard__meta span { font-size: .76rem; }
